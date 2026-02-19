@@ -56,4 +56,51 @@ public class Cicla {
     }
 
 
+    // Metodo Get - Para obtener datos
+    public String getNombre(){
+        return nombre;
+    }
+    public String getId(){
+        return id;
+    }
+    public boolean getFreno(){
+        return freno;
+    }
+    public String getColor(){
+        return color;
+    }
+    public int getTallaRin(){
+        return tallaRin;
+    }
+
+    // Metodo Set - Para asignar datos
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+    public void setId(String id){
+        this.id = id;
+    }
+    public void setFreno(boolean freno){
+        this.freno = freno;
+    }
+    public void setColor(String color){
+        this.color = color;
+    }
+    public void setTallaRin(int tallaRin){
+        this.tallaRin = tallaRin;
+    }
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
