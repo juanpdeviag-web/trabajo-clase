@@ -1,4 +1,4 @@
-package Uml;
+package UML;
 
 public class Cicla {
 
@@ -18,7 +18,7 @@ public class Cicla {
 
     private int tallaRin;
 
-    // Método constructor
+    // Metodo constructor
     public Cicla(String id,
                  String nombre,
                  boolean freno,
@@ -89,10 +89,6 @@ public class Cicla {
     public void setTallaRin(int tallaRin){
         this.tallaRin = tallaRin;
     }
-
-
-
-
 
 
 
