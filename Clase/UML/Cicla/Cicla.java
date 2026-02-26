@@ -1,4 +1,4 @@
-package UML;
+package UML.Cicla;
 
 public class Cicla {
 

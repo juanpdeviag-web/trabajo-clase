@@ -1,4 +1,4 @@
-package UML;
+package UML.Cicla;
 
 import javax.swing.*;
 
