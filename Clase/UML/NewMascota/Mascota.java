@@ -9,21 +9,19 @@ public class Mascota {
     private String raza;
     private int edad;
 
-    private Propietario propietario;
+    private Propietario thePropietario;
 
     //  Constructor
     public Mascota( String id,
                     String nombre,
                     String especie,
                     String raza,
-                    int edad,
-                    Propietario propietario){
+                    int edad){
         this.id=id;
         this.nombre=nombre;
         this.especie=especie;
         this.raza=raza;
         this.edad=edad;
-        this.propietario=propietario;
     }
 
     //  Gets
@@ -69,12 +67,11 @@ public class Mascota {
         this.edad = edad;
     }
 
-    public Propietario getPropietario() {
-        return propietario;
+    public Propietario getThePropietario() {
+        return thePropietario ;
     }
-
-    public void setPropietario(Propietario propietario) {
-        this.propietario = propietario;
+    public void setThePropietario(Propietario thePropietario) {
+        this.thePropietario = thePropietario;
     }
 
     //  toString
@@ -85,7 +82,7 @@ public class Mascota {
                 "Tipo: " + especie + "\n" +
                 "Raza: " + raza + "\n" +
                 "Edad: " + edad + " años\n"+
-                propietario.toString();
+                thePropietario.toString();
     }
 
 }

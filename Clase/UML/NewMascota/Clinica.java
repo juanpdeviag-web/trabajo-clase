@@ -3,19 +3,23 @@ package UML.NewMascota;
 public class Clinica {
 
         // Atributos
+        private String nit;
         private String nombre;
-        private Mascota[] mascotas;
-        private Propietario[] propietarios;
         private int cantidadMascotas;
         private int cantidadPropietarios;
         private double valorBaseConsulta;
+
+        // Relación Propietario(información) - Contención
+        private Propietario[] listPropietarios;
+        // Relación Mascota(información) - Contención
+        private Mascota[] listMascotas;
 
         // Constructor
         public Clinica(String nombre, double valorBaseConsulta) {
             this.nombre              = nombre;
             this.valorBaseConsulta   = valorBaseConsulta;
-            this.mascotas            = new Mascota[100];
-            this.propietarios        = new Propietario[100];
+            listMascotas            = new Mascota[100];
+            listPropietarios        = new Propietario[100];
             this.cantidadMascotas    = 0;
             this.cantidadPropietarios = 0;
         }
@@ -25,7 +29,7 @@ public class Clinica {
         // ══════════════════════════════════════════════════════════
         public boolean registrarPropietario(Propietario propietario) {
             if (cantidadPropietarios < 100) {
-                propietarios[cantidadPropietarios] = propietario;
+                listPropietarios[cantidadPropietarios] = propietario;
                 cantidadPropietarios++;
                 return true;
             }
@@ -37,7 +41,7 @@ public class Clinica {
         // ══════════════════════════════════════════════════════════
         public boolean registrarMascota(Mascota mascota) {
             if (cantidadMascotas < 100) {
-                mascotas[cantidadMascotas] = mascota;
+                listMascotas[cantidadMascotas] = mascota;
                 cantidadMascotas++;
                 return true;
             }
@@ -49,8 +53,8 @@ public class Clinica {
         // ══════════════════════════════════════════════════════════
         public Mascota consultarMascota(String codigo) {
             for (int i = 0; i < cantidadMascotas; i++) {
-                if (mascotas[i].getId().equalsIgnoreCase(codigo)) {
-                    return mascotas[i];
+                if (listMascotas[i].getId().equalsIgnoreCase(codigo)) {
+                    return listMascotas[i];
                 }
             }
             return null;
@@ -61,8 +65,8 @@ public class Clinica {
         // ══════════════════════════════════════════════════════════
         public Propietario consultarPropietario(String id) {
             for (int i = 0; i < cantidadPropietarios; i++) {
-                if (propietarios[i].getCedula().equalsIgnoreCase(id)) {
-                    return propietarios[i];
+                if (listPropietarios[i].getCedula().equalsIgnoreCase(id)) {
+                    return listPropietarios[i];
                 }
             }
             return null;
@@ -92,12 +96,12 @@ public class Clinica {
         // ══════════════════════════════════════════════════════════
         public boolean eliminarMascota(String codigo) {
             for (int i = 0; i < cantidadMascotas; i++) {
-                if (mascotas[i].getId().equalsIgnoreCase(codigo)) {
+                if (listMascotas[i].getId().equalsIgnoreCase(codigo)) {
                     // Mover todos los elementos una posición hacia atrás
                     for (int j = i; j < cantidadMascotas - 1; j++) {
-                        mascotas[j] = mascotas[j + 1];
+                        listMascotas[j] = listMascotas[j + 1];
                     }
-                    mascotas[cantidadMascotas - 1] = null;
+                    listMascotas[cantidadMascotas - 1] = null;
                     cantidadMascotas--;
                     return true;
                 }
@@ -194,9 +198,9 @@ public class Clinica {
 
             for (int i = 0; i < cantidadMascotas; i++) {
                 lista = lista + (i + 1) + ". ";
-                lista = lista + mascotas[i].getNombre();
-                lista = lista + " (" + mascotas[i].getId() + ")";
-                lista = lista + " - " + mascotas[i].getEspecie() + "\n";
+                lista = lista + listMascotas[i].getNombre();
+                lista = lista + " (" + listMascotas[i].getId() + ")";
+                lista = lista + " - " + listMascotas[i].getEspecie() + "\n";
             }
 
             return lista;
@@ -216,8 +220,8 @@ public class Clinica {
 
             for (int i = 0; i < cantidadPropietarios; i++) {
                 lista = lista + (i + 1) + ". ";
-                lista = lista + propietarios[i].getNombre();
-                lista = lista + " (ID: " + propietarios[i].getCedula() + ")\n";
+                lista = lista + listPropietarios[i].getNombre();
+                lista = lista + " (ID: " + listPropietarios[i].getCedula() + ")\n";
             }
 
             return lista;
