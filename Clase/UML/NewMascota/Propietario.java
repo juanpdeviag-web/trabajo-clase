@@ -8,6 +8,9 @@ public class Propietario {
     private String telefono;
     private String direccion;
 
+    // Relación Mascota -> Asociación
+    private Mascota[] listMascotas;
+
     // Constructor
     public Propietario(String cedula,
                         String nombre,
@@ -18,6 +21,8 @@ public class Propietario {
         this.telefono=telefono;
         this.direccion=direccion;
     }
+
+    // Getter y Setter
 
     public String getCedula() {
         return cedula;

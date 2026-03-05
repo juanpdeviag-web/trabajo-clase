@@ -108,7 +108,7 @@ public class Main {
             String edadStr = JOptionPane.showInputDialog("Edad (años):");
             int edad = Integer.parseInt(edadStr);
 
-            Mascota mascota = new Mascota(codigo, nombre, tipo, raza, edad, propietario);
+            Mascota mascota = new Mascota(codigo, nombre, tipo, raza, edad);
 
             boolean registrado = clinica.registrarMascota(mascota);
 
