@@ -45,14 +45,13 @@ public class Cliente {
         this.telefono = telefono;
     }
 
+
+    // Métodos para que el Taller gestione el array interno del cliente
     public Bicicleta[] getListBicicletas() { return listBicicletas; }
     public void setListBicicletas(Bicicleta[] listBicicletas) {
         this.listBicicletas = listBicicletas;
     }
 
-
-
-    // Métodos para que el Taller gestione el array interno del cliente
 
     public int getCantBicicletas() { return cantBicicletas; }
     public void setCantBicicletas(int c) { this.cantBicicletas = c; }
