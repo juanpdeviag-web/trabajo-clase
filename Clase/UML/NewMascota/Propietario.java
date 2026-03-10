@@ -56,6 +56,13 @@ public class Propietario {
         this.direccion = direccion;
     }
 
+    public Mascota[] getListMascotas() {
+        return listMascotas;
+    }
+
+    public void setListMascotas(Mascota[] listMascotas) {
+        this.listMascotas = listMascotas;
+    }
 
     // toString
     @Override
