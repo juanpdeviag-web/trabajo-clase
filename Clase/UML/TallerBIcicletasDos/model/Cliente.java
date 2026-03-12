@@ -1,6 +1,6 @@
 package UML.TallerBIcicletasDos.model;
 
-import UML.TallerBIcicletas.model.Bicicleta;
+import UML.TallerBIcicletasDos.model.Bicicleta;
 
 import java.util.Arrays;
 
@@ -12,7 +12,7 @@ public class Cliente {
     private String direccion;
 
     // Arrays públicos o accesibles para que Taller los llene
-    private UML.TallerBIcicletas.model.Bicicleta[] listBicicletas;
+    private Bicicleta[] listBicicletas;
     private int cantBicicletas; // Contador simple
 
     //Constructor
@@ -22,12 +22,12 @@ public class Cliente {
         this.telefono = telefono;
         this.direccion = direccion;
 
-        this.listBicicletas = new UML.TallerBIcicletas.model.Bicicleta[5]; // Capacidad para 5 bicis
+        this.listBicicletas = new Bicicleta[5]; // Capacidad para 5 bicis
         this.cantBicicletas = 0;
     }
 
     //Metodo para añadir bicicletas
-    public void setBicicleta(UML.TallerBIcicletas.model.Bicicleta newBicicleta){
+    public void setBicicleta(Bicicleta newBicicleta){
         for (int i = 0; i < listBicicletas.length; i++) {
             if (listBicicletas[i] == null) {
                 this.listBicicletas[i] = newBicicleta;
@@ -67,7 +67,7 @@ public class Cliente {
     }
 
     // Métodos para que el Taller gestione el array interno del cliente
-    public UML.TallerBIcicletas.model.Bicicleta[] getListBicicletas() { return listBicicletas; }
+    public Bicicleta[] getListBicicletas() { return listBicicletas; }
     public void setListBicicletas(Bicicleta[] listBicicletas) {
         this.listBicicletas = listBicicletas;
     }
@@ -79,12 +79,14 @@ public class Cliente {
 
     //toString
 
+
     @Override
     public String toString() {
         return "Cliente{" +
                 "id='" + id + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", telefono='" + telefono + '\'' +
+                ", direccion='" + direccion + '\'' +
                 ", listBicicletas=" + Arrays.toString(listBicicletas) +
                 ", cantBicicletas=" + cantBicicletas +
                 '}';
