@@ -1,39 +1,39 @@
 package UML.TallerBIcicletasDos.model;
 
-import UML.TallerBIcicletas.model.Bicicleta;
-import UML.TallerBIcicletas.model.Cliente;
-import UML.TallerBIcicletas.model.Mecanico;
-import UML.TallerBIcicletas.model.OrdenServicio;
-import UML.TallerBIcicletas.model.Repuesto;
+import UML.TallerBIcicletasDos.model.Bicicleta;
+import UML.TallerBIcicletasDos.model.Cliente;
+import UML.TallerBIcicletasDos.model.Mecanico;
+import UML.TallerBIcicletasDos.model.OrdenServicio;
+import UML.TallerBIcicletasDos.model.Repuesto;
 
 import javax.swing.*;
 import java.util.ArrayList;
 
 public class Taller {
     // Listas Globales del Taller
-    private UML.TallerBIcicletas.model.Cliente[] listClientes;
+    private Cliente[] listClientes;
     private int contClientes;
 
-    private UML.TallerBIcicletas.model.Bicicleta[] listBicicletas;
+    private Bicicleta[] listBicicletas;
 
-    private UML.TallerBIcicletas.model.Repuesto[] listRepuestos;
+    private Repuesto[] listRepuestos;
     private int contRepuestos;
 
-    private UML.TallerBIcicletas.model.Mecanico[] listMecanicos;
+    private Mecanico[] listMecanicos;
     private int contMecanicos;
 
-    private UML.TallerBIcicletas.model.OrdenServicio[] listOrdenes;
+    private OrdenServicio[] listOrdenes;
     private int contOrdenes;
 
     public Taller() {
-        this.listClientes = new UML.TallerBIcicletas.model.Cliente[100];
+        this.listClientes = new Cliente[100];
         this.contClientes = 0;
-        this.listBicicletas = new UML.TallerBIcicletas.model.Bicicleta[100];
-        this.listRepuestos = new UML.TallerBIcicletas.model.Repuesto[50];
+        this.listBicicletas = new Bicicleta[100];
+        this.listRepuestos = new Repuesto[50];
         this.contRepuestos = 0;
-        this.listMecanicos = new UML.TallerBIcicletas.model.Mecanico[10];
+        this.listMecanicos = new Mecanico[10];
         this.contMecanicos = 0;
-        this.listOrdenes = new UML.TallerBIcicletas.model.OrdenServicio[200];
+        this.listOrdenes = new OrdenServicio[200];
         this.contOrdenes = 0;
     }
 
@@ -50,7 +50,7 @@ public class Taller {
     //Métodos CRUD Cliente
     //Create - Registrar Cliente
     public boolean registrarCliente(String id, String nombre, String telefono, String direccion) {
-        UML.TallerBIcicletas.model.Cliente newCliente = new UML.TallerBIcicletas.model.Cliente(id, nombre, telefono, direccion);
+        Cliente newCliente = new Cliente(id, nombre, telefono, direccion);
 
         if (buscarClienteById(id) == -1) {
             for (int i = 0; i < listClientes.length; i++) {
@@ -81,7 +81,7 @@ public class Taller {
     }
 
     // Read - Consultar Cliente
-    public UML.TallerBIcicletas.model.Cliente consultarCliente(String id) {
+    public Cliente consultarCliente(String id) {
         int posicion = buscarClienteById(id);
         if (posicion != -1) {
             return listClientes[posicion];
@@ -147,8 +147,8 @@ public class Taller {
             return false;
         }
 
-        UML.TallerBIcicletas.model.Cliente cliente = listClientes[posCliente];
-        UML.TallerBIcicletas.model.Bicicleta newBicicleta = new UML.TallerBIcicletas.model.Bicicleta(serial, marca, color);
+        Cliente cliente = listClientes[posCliente];
+        Bicicleta newBicicleta = new Bicicleta(serial, marca, color);
         newBicicleta.setTheCLiente(cliente);
         cliente.setBicicleta(newBicicleta);
 
@@ -164,7 +164,7 @@ public class Taller {
     }
 
     // Read - Consultar Bicicleta
-    public UML.TallerBIcicletas.model.Bicicleta consultarBicicletas(String serial) {
+    public Bicicleta consultarBicicletas(String serial) {
         int posicion = buscarBicicletaBySerial(serial);
         if (posicion != -1) {
             return listBicicletas[posicion];
@@ -207,7 +207,7 @@ public class Taller {
         return false;
     }
 
-    public UML.TallerBIcicletas.model.Cliente[] getListClientes() {
+    public Cliente[] getListClientes() {
         return listClientes;
     }
     public void setListClientes(Cliente[] listClientes) {
@@ -221,14 +221,14 @@ public class Taller {
         this.contClientes = contClientes;
     }
 
-    public UML.TallerBIcicletas.model.Bicicleta[] getListBicicletas() {
+    public Bicicleta[] getListBicicletas() {
         return listBicicletas;
     }
     public void setListBicicletas(Bicicleta[] listBicicletas) {
         this.listBicicletas = listBicicletas;
     }
 
-    public UML.TallerBIcicletas.model.Repuesto[] getListRepuestos() {
+    public Repuesto[] getListRepuestos() {
         return listRepuestos;
     }
     public void setListRepuestos(Repuesto[] listRepuestos) {
@@ -242,7 +242,7 @@ public class Taller {
         this.contRepuestos = contRepuestos;
     }
 
-    public UML.TallerBIcicletas.model.Mecanico[] getListMecanicos() {
+    public Mecanico[] getListMecanicos() {
         return listMecanicos;
     }
     public void setListMecanicos(Mecanico[] listMecanicos) {
@@ -256,7 +256,7 @@ public class Taller {
         this.contMecanicos = contMecanicos;
     }
 
-    public UML.TallerBIcicletas.model.OrdenServicio[] getListOrdenes() {
+    public OrdenServicio[] getListOrdenes() {
         return listOrdenes;
     }
     public void setListOrdenes(OrdenServicio[] listOrdenes) {

@@ -11,37 +11,37 @@ public class OrdenServicio {
     //Atributos
     private String codigo;
     private double costoTotal;
-    private UML.TallerBIcicletas.model.EstadoOrden estado;
+    private EstadoOrden estado;
 
     // Relaciones
-    private UML.TallerBIcicletas.model.Cliente cliente;
-    private UML.TallerBIcicletas.model.Bicicleta bicicleta;
+    private Cliente cliente;
+    private Bicicleta bicicleta;
 
     // Arrays internos (Solo almacenamiento)
-    private UML.TallerBIcicletas.model.Repuesto[] listRepuestos;
+    private Repuesto[] listRepuestos;
     private int cantRepuestos;
 
-    private UML.TallerBIcicletas.model.Tarea[] listTareas;
+    private Tarea[] listTareas;
     private int cantTareas;
 
-    private UML.TallerBIcicletas.model.Mecanico[] listMecanicos;
+    private Mecanico[] listMecanicos;
     private int cantMecanicos;
 
-    public OrdenServicio(String codigo, UML.TallerBIcicletas.model.Cliente cliente, UML.TallerBIcicletas.model.Bicicleta bicicleta) {
+    public OrdenServicio(String codigo, Cliente cliente, Bicicleta bicicleta) {
         this.codigo = codigo;
         this.cliente = cliente;
         this.bicicleta = bicicleta;
-        this.estado = UML.TallerBIcicletas.model.EstadoOrden.RECIBIDA;
+        this.estado = EstadoOrden.RECIBIDA;
         this.costoTotal = 0;
 
         // Inicializar cajones vacíos
-        listRepuestos = new UML.TallerBIcicletas.model.Repuesto[10];
+        listRepuestos = new Repuesto[10];
         this.cantRepuestos = 0;
 
-        listTareas = new UML.TallerBIcicletas.model.Tarea[10];
+        listTareas = new Tarea[10];
         this.cantTareas = 0;
 
-        listMecanicos = new UML.TallerBIcicletas.model.Mecanico[3];
+        listMecanicos = new Mecanico[3];
         this.cantMecanicos = 0;
     }
 
@@ -50,15 +50,15 @@ public class OrdenServicio {
     public double getCostoTotal() { return costoTotal; }
     public void setCostoTotal(double costo) { this.costoTotal = costo; }
 
-    public UML.TallerBIcicletas.model.Repuesto[] getListRepuestos() { return listRepuestos; }
+    public Repuesto[] getListRepuestos() { return listRepuestos; }
     public int getCantRepuestos() { return cantRepuestos; }
     public void setCantRepuestos(int c) { this.cantRepuestos = c; }
 
-    public UML.TallerBIcicletas.model.Tarea[] getListTareas() { return listTareas; }
+    public Tarea[] getListTareas() { return listTareas; }
     public int getCantTareas() { return cantTareas; }
     public void setCantTareas(int c) { this.cantTareas = c; }
 
-    public UML.TallerBIcicletas.model.EstadoOrden getEstado() {
+    public EstadoOrden getEstado() {
         return this.estado;
     }
     public void setEstado(EstadoOrden estado) { this.estado = estado; }
@@ -77,7 +77,7 @@ public class OrdenServicio {
         this.cantMecanicos = cantMecanicos;
     }
 
-    public UML.TallerBIcicletas.model.Mecanico[] getListMecanicos() {
+    public Mecanico[] getListMecanicos() {
         return listMecanicos;
     }
     public void setListMecanicos(Mecanico[] listMecanicos) {
@@ -92,14 +92,14 @@ public class OrdenServicio {
         this.listRepuestos = listRepuestos;
     }
 
-    public UML.TallerBIcicletas.model.Bicicleta getBicicleta() {
+    public Bicicleta getBicicleta() {
         return bicicleta;
     }
     public void setBicicleta(Bicicleta bicicleta) {
         this.bicicleta = bicicleta;
     }
 
-    public UML.TallerBIcicletas.model.Cliente getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
     public void setCliente(Cliente cliente) {

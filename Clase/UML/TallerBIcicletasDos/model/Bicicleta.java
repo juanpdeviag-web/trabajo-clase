@@ -1,6 +1,6 @@
 package UML.TallerBIcicletasDos.model;
 
-import UML.TallerBIcicletas.model.Cliente;
+import UML.TallerBIcicletasDos.model.Cliente;
 
 public class Bicicleta {
 
@@ -9,7 +9,7 @@ public class Bicicleta {
     private String marca;
     private String color;
 
-    private UML.TallerBIcicletas.model.Cliente theCLiente;
+    private Cliente theCLiente;
     private String nombreCliente;
 
 
@@ -43,7 +43,7 @@ public class Bicicleta {
         this.color = color;
     }
 
-    public UML.TallerBIcicletas.model.Cliente getTheCLiente() {
+    public Cliente getTheCLiente() {
         return theCLiente;
     }
     public void setTheCLiente(Cliente theCLiente) {
