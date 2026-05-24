@@ -124,4 +124,4 @@ import java.util.stream.Collectors;
             return evento.getParticipantes();
         }
     }
-}
+

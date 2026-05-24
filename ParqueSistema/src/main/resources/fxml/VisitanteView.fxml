@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.techpark.control.VisitanteController"
+      spacing="15" styleClass="content-panel">
+
+    <!-- PERFIL DEL VISITANTE -->
+    <HBox alignment="CENTER_LEFT" spacing="20" styleClass="profile-section">
+        <Circle fx:id="avatarCircle" radius="40" styleClass="avatar-circle"/>
+        <VBox spacing="5">
+            <Label fx:id="lblNombreVisitante" text="Nombre Visitante" styleClass="profile-name"/>
+            <Label fx:id="lblSaldoVisitante" text="Saldo: $0.00" styleClass="profile-saldo"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Recargar Saldo" styleClass="btn-primary" onAction="#onRecargarSaldo"/>
+        <Button text="Cerrar Sesión" styleClass="btn-secondary" onAction="#onCerrarSesion"/>
+    </HBox>
+
+    <TabPane fx:id="tabPaneVisitante" tabClosingPolicy="UNAVAILABLE">
+
+        <!-- PESTAÑA ATRACCIONES -->
+        <Tab text="Atracciones">
+            <VBox spacing="10" styleClass="tab-content">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Atracciones Disponibles" styleClass="section-title"/>
+                <TableView fx:id="tableAtracciones" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colNombre" text="Nombre" prefWidth="200"/>
+                        <TableColumn fx:id="colTipo" text="Tipo" prefWidth="150"/>
+                        <TableColumn fx:id="colEstado" text="Estado" prefWidth="120"/>
+                        <TableColumn fx:id="colEspera" text="Espera (min)" prefWidth="100"/>
+                        <TableColumn fx:id="colCosto" text="Costo Adicional" prefWidth="120"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Ingresar a Atracción" styleClass="btn-primary" onAction="#onIngresarAtraccion"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <!-- PESTAÑA TICKETS -->
+        <Tab text="Mis Tickets">
+            <VBox spacing="10" styleClass="tab-content">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Gestión de Tickets" styleClass="section-title"/>
+                <Label fx:id="lblTicketActual" text="Ticket Actual: Ninguno"/>
+
+                <HBox spacing="10">
+                    <VBox spacing="5">
+                        <Label text="Precio Base:"/>
+                        <TextField fx:id="txtPrecioBase" text="50000"/>
+                    </VBox>
+                    <VBox spacing="5">
+                        <Label text="Descuento (Familiar):"/>
+                        <TextField fx:id="txtDescuento" text="15"/>
+                    </VBox>
+                    <VBox spacing="5">
+                        <Label text="Recargo (FastPass):"/>
+                        <TextField fx:id="txtRecargo" text="20000"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="10">
+                    <Button text="Comprar General" styleClass="btn-primary" onAction="#onComprarGeneral"/>
+                    <Button text="Comprar Familiar" styleClass="btn-primary" onAction="#onComprarFamiliar"/>
+                    <Button text="Comprar FastPass" styleClass="btn-primary" onAction="#onComprarFastPass"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <!-- PESTAÑA HISTORIAL -->
+        <Tab text="Historial">
+            <VBox spacing="10" styleClass="tab-content">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Historial de Visitas" styleClass="section-title"/>
+                <TableView fx:id="tableHistorial" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colHistAtraccion" text="Atracción" prefWidth="200"/>
+                        <TableColumn fx:id="colHistFecha" text="Fecha/Hora" prefWidth="180"/>
+                        <TableColumn fx:id="colHistGasto" text="Gasto" prefWidth="100"/>
+                        <TableColumn fx:id="colHistEspera" text="Espera" prefWidth="100"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- PESTAÑA NOTIFICACIONES -->
+        <Tab text="Notificaciones">
+            <VBox spacing="10" styleClass="tab-content">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Buzón de Notificaciones" styleClass="section-title"/>
+                <ListView fx:id="listNotificaciones" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <!-- PESTAÑA RANKING -->
+        <Tab text="Rankings">
+            <VBox spacing="10" styleClass="tab-content">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Top 10 Atracciones Más Visitadas" styleClass="section-title"/>
+                <ListView fx:id="listTopAtraccionesVisitante" VBox.vgrow="ALWAYS"/>
+                <Button text="Actualizar Rankings" styleClass="btn-primary" onAction="#onActualizarRankings"/>
+            </VBox>
+        </Tab>
+        <!-- PESTAÑA FAVORITAS -->
+        <Tab text="Mis Favoritas">
+            <VBox spacing="10" styleClass="tab-content">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Mis Atracciones Favoritas" styleClass="section-title"/>
+
+                <TableView fx:id="tableFavoritas" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colFavNombre" text="Nombre" prefWidth="200"/>
+                        <TableColumn fx:id="colFavTipo" text="Tipo" prefWidth="150"/>
+                        <TableColumn fx:id="colFavEstado" text="Estado" prefWidth="120"/>
+                        <TableColumn fx:id="colFavVisitas" text="Mis Visitas" prefWidth="100"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Agregar a Favoritas desde Atracciones" styleClass="btn-primary"
+                            onAction="#onAgregarFavorita"/>
+                    <Button text="Quitar de Favoritas" styleClass="btn-secondary"
+                            onAction="#onQuitarFavorita"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <!-- PESTAÑA MAPA DEL PARQUE -->
+        <Tab text="Mapa del Parque">
+            <VBox spacing="10" styleClass="tab-content">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Zonas del Parque" styleClass="section-title"/>
+
+                <ListView fx:id="listZonas" VBox.vgrow="ALWAYS">
+                    <!-- Se poblará dinámicamente -->
+                </ListView>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Ver Atracciones de Zona" styleClass="btn-primary" onAction="#onVerAtraccionesZona"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+
+    </TabPane>
+
+</VBox>

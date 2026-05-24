@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.techpark.control.AdministradorController"
+      spacing="15" styleClass="content-panel">
+
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label text="Panel de Administración" styleClass="panel-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Cerrar Sesión" styleClass="btn-secondary" onAction="#onCerrarSesionAdmin"/>
+    </HBox>
+
+    <TabPane fx:id="tabPaneAdmin" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+        <!-- PESTAÑA EMPLEADOS -->
+        <Tab text="Empleados">
+            <VBox spacing="10" styleClass="tab-content">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Gestión de Empleados" styleClass="section-title"/>
+                <TableView fx:id="tableEmpleados" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colEmpDocumento" text="Documento" prefWidth="120"/>
+                        <TableColumn fx:id="colEmpNombre" text="Nombre" prefWidth="200"/>
+                        <TableColumn fx:id="colEmpUsuario" text="Usuario" prefWidth="150"/>
+                        <TableColumn fx:id="colEmpZona" text="Zona Asignada" prefWidth="150"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="10">
+                    <Button text="Contratar Operador" styleClass="btn-primary" onAction="#onContratarOperador"/>
+                    <Button text="Reasignar Zona" styleClass="btn-secondary" onAction="#onReasignarZona"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <!-- PESTAÑA ATRACCIONES -->
+        <Tab text="Atracciones">
+            <VBox spacing="10" styleClass="tab-content">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Monitoreo de Atracciones" styleClass="section-title"/>
+                <TableView fx:id="tableAtraccionesAdmin" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colAdminId" text="ID" prefWidth="80"/>
+                        <TableColumn fx:id="colAdminNombre" text="Nombre" prefWidth="180"/>
+                        <TableColumn fx:id="colAdminTipo" text="Tipo" prefWidth="140"/>
+                        <TableColumn fx:id="colAdminEstado" text="Estado" prefWidth="130"/>
+                        <TableColumn fx:id="colAdminVisitantes" text="Visitantes" prefWidth="100"/>
+                        <TableColumn fx:id="colAdminMotivo" text="Motivo Estado" prefWidth="200"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="10">
+                    <Button text="Crear Atracción" styleClass="btn-primary" onAction="#onCrearAtraccion"/>
+                    <Button text="Activar Alerta Climática" styleClass="btn-warning" onAction="#onAlertaClimatica"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <!-- PESTAÑA REPORTES -->
+        <Tab text="Reportes">
+            <VBox spacing="15" styleClass="tab-content">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Estadísticas del Parque" styleClass="section-title"/>
+
+                <GridPane hgap="20" vgap="15">
+                    <Label text="Ingresos Totales del Día:" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                           styleClass="report-label"/>
+                    <Label fx:id="lblIngresos" text="0.00" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                           styleClass="report-value"/>
+
+                    <Label text="Tiempo Promedio de Espera:" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                           styleClass="report-label"/>
+                    <Label fx:id="lblTiempoPromedio" text="0 min" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                           styleClass="report-value"/>
+
+                    <Label text="Total de Visitantes Registrados:" GridPane.rowIndex="2" GridPane.columnIndex="0"
+                           styleClass="report-label"/>
+                    <Label fx:id="lblTotalVisitantes" text="0" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                           styleClass="report-value"/>
+                </GridPane>
+
+                <Label text="Control de Aforo" styleClass="subsection-title"/>
+                <GridPane hgap="20" vgap="15">
+                    <Label text="Aforo Total del Parque:" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                           styleClass="report-label"/>
+                    <Label fx:id="lblAforoTotal" text="0" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                           styleClass="report-value"/>
+
+                    <Label text="Visitantes Activos:" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                           styleClass="report-label"/>
+                    <Label fx:id="lblVisitantesActivos" text="0" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                           styleClass="report-value"/>
+
+                    <Label text="Ocupación del Parque:" GridPane.rowIndex="2" GridPane.columnIndex="0"
+                           styleClass="report-label"/>
+                    <Label fx:id="lblOcupacion" text="0%" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                           styleClass="report-value"/>
+                </GridPane>
+
+                <Label text="Top 5 Atracciones Más Visitadas:" styleClass="subsection-title"/>
+                <ListView fx:id="listTopAtracciones"/>
+
+                <Button text="Actualizar Reportes" styleClass="btn-primary" onAction="#onActualizarReportes"/>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+
+</VBox>

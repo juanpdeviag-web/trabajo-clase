@@ -5,6 +5,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/TallerDos/pom.xml" />
+        <option value="$PROJECT_DIR$/PreParcialTres/pom.xml" />
+        <option value="$PROJECT_DIR$/ParqueAtracciones/pom.xml" />
+        <option value="$PROJECT_DIR$/ParqueSistema/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.techpark.control.MainController"
+            prefHeight="800.0" prefWidth="1200.0"
+            styleClass="root-container">
+
+    <!-- BARRA SUPERIOR -->
+    <top>
+        <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="20">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+            <Label text="TECH-PARK UQ" styleClass="header-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblUsuarioActivo" text="" styleClass="user-label"/>
+            <Button fx:id="btnAccesoPersonal" text="Acceso Personal" styleClass="btn-secondary"
+                    onAction="#onAccesoPersonal"/>
+        </HBox>
+    </top>
+
+    <!-- CONTENEDOR CENTRAL CON STACK PANE PARA INTERCAMBIAR VISTAS -->
+    <center>
+        <StackPane fx:id="stackContenedor">
+
+            <!-- VISTA LOGIN VISITANTE -->
+            <VBox fx:id="panelLoginVisitante" alignment="CENTER" spacing="20" styleClass="login-panel">
+                <Label text="Taquilla Virtual - Visitantes" styleClass="panel-title"/>
+
+                <VBox alignment="CENTER" spacing="10" maxWidth="400">
+                    <Label text="Documento de Identidad:"/>
+                    <TextField fx:id="txtDocumentoVisitante" promptText="Ingrese su documento"/>
+
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Ingresar" styleClass="btn-primary" onAction="#onIngresarVisitante"/>
+                        <Button text="Registrarse" styleClass="btn-secondary" onAction="#onRegistrarVisitante"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- VISTA REGISTRO VISITANTE -->
+            <VBox fx:id="panelRegistroVisitante" alignment="CENTER" spacing="15" styleClass="login-panel"
+                  visible="false" managed="false">
+                <Label text="Registro de Nuevo Visitante" styleClass="panel-title"/>
+
+                <GridPane hgap="10" vgap="10" maxWidth="500">
+                    <Label text="Documento:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtRegDocumento" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Nombre Completo:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtRegNombre" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Edad:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtRegEdad" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Estatura (m):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtRegEstatura" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="Saldo Inicial:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtRegSaldo" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                    <Label text="URL Foto:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtRegFoto" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                </GridPane>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Guardar" styleClass="btn-primary" onAction="#onGuardarRegistro"/>
+                    <Button text="Cancelar" styleClass="btn-secondary" onAction="#onCancelarRegistro"/>
+                </HBox>
+            </VBox>
+
+            <!-- VISTA PRINCIPAL VISITANTE (Placeholder) -->
+            <VBox fx:id="panelPrincipalVisitante" visible="false" managed="false">
+                <!-- Se cargará dinámicamente -->
+            </VBox>
+
+            <!-- VISTA ADMINISTRADOR (Placeholder) -->
+            <VBox fx:id="panelAdministrador" visible="false" managed="false">
+                <!-- Se cargará dinámicamente -->
+            </VBox>
+
+        </StackPane>
+    </center>
+
+</BorderPane>
